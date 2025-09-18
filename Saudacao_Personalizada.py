@@ -1,5 +1,13 @@
-def saudacao(nome):
-    nome = str(input('Digite seu nome: '))
-    print(f'Olá, {nome}! Seja bem-vindo(a)!')
-    return nome
-saudacao('nome')
+def saudacao():
+    """Coleta o nome e a idade do usuário e imprime uma saudação."""
+    nome = input('Digite seu nome: ')
+    try:
+        idade = int(input('Digite sua idade: '))
+    except ValueError:
+        print("Entrada inválida para a idade. Usando 'idade desconhecida'.")
+        idade = 'idade desconhecida'
+        
+    print(f'Olá, {nome}! Seja bem-vindo(a)! Você tem {idade} anos.')
+
+# Chamada da função. Não é necessário passar argumentos.
+saudacao()
