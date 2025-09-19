@@ -1,7 +1,7 @@
 def saudacao():
     """Coleta o nome e a idade do usuário e imprime uma saudação."""
-    nome = input('Digite seu nome: ')
     try:
+        nome = str(input('Digite seu nome: '))
         idade = int(input('Digite sua idade: '))
     except ValueError:
         print("Entrada inválida para a idade. Usando 'idade desconhecida'.")
