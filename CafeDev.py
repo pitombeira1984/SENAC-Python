@@ -53,10 +53,10 @@ tabela_geral = pd.DataFrame({
 print('Tabela Geral\n', tabela_geral )
 # 2.2 Tebela Frequencia por Loja
 venda_bebida_loja = pd.crosstab(df['Loja'], df['Bebida'])
-print(venda_bebida_loja)
+print('---Venda Bebida por Loja---\n', venda_bebida_loja)
 venda_percentual = pd.crosstab(df['Loja'], df['Bebida'], normalize='index') * 100
 venda_percentual = venda_percentual.round(2).astype(str) + '%'
-print(venda_percentual)
+print('---Venda Bebida por Loja(%)---\n', venda_percentual)
 # A loja od Igratemi é a loja que vende mais Espresso Tônico, junto com a loja RioMar.
 # Considerendo que Público mais jovem ou com maior poder aquisitivo, predisposto a experimentar bebidas modernas e refrescantes,
 #geram um percentual de 18.18% na loja Iguatemi 
