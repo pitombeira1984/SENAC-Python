@@ -3,6 +3,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+# Módulo 1: Tipos de Dados e Frequência
 # 1. Tipos de Dados
 # Lojas e Bebidas são considerados dados Qualitativos
 # ID_Venda, Idade_Cliente, Valor_Total_Pedido, são considerados dados Quantitativos
@@ -45,19 +46,47 @@ df = pd.DataFrame(dados)
 freq_abs = df['Bebida'].value_counts()
 freq_rel = df['Bebida'].value_counts(normalize=True).round(2)*100
 freq_rel = freq_rel.astype(str) + '%'
+
 # 2.1 Tabela Frequencia Geral
 tabela_geral = pd.DataFrame({
     'Freq.Absolura':freq_abs,
     'Freq.Relativa':freq_rel
 })
 print('Tabela Geral\n', tabela_geral )
-# 2.2 Tebela Frequencia por Loja
+
+# 2.2 Tebela Frequencia Absoluta e Relativa por Loja
+
+# 2.2.1 Calculando Frequencia Absoluta
 venda_bebida_loja = pd.crosstab(df['Loja'], df['Bebida'])
 print('---Venda Bebida por Loja---\n', venda_bebida_loja)
+
+# 2.2.2 Calculando Frequencia Relativa
 venda_percentual = pd.crosstab(df['Loja'], df['Bebida'], normalize='index') * 100
 venda_percentual = venda_percentual.round(2).astype(str) + '%'
 print('---Venda Bebida por Loja(%)---\n', venda_percentual)
 # A loja od Igratemi é a loja que vende mais Espresso Tônico, junto com a loja RioMar.
 # Considerendo que Público mais jovem ou com maior poder aquisitivo, predisposto a experimentar bebidas modernas e refrescantes,
-#geram um percentual de 18.18% na loja Iguatemi 
+#geram um percentual de 18.18% na loja Iguatemi
 
+# 3. Visualização
+# O gráfico de barra é a melhor opção para mostrar a Frequência Absoluta de vendas por Loja. 
+# Gerando Gráfico de Barra
+sns.countplot(x='Loja', data=df)
+
+# Exibindo o gráfico
+plt.title('Frequencia Absoluta de Vendas por Loja')
+plt.xlabel('Lojas')
+plt.ylabel('Quantidade de Vendas')
+plt.show()  
+
+# Módulo 2: Perfil de Cliente
+# 4. Análise Idade
+media = df['Idade_Cliente'].mean()
+mediana = df['Idade_Cliente'].median()
+moda = df['Idade_Cliente'].mode()
+tabela_idade = pd.DataFrame({
+    'Media':media,
+    'Mediana':mediana,
+    'Moda':moda
+})
+print('---Analise de Idade---\n',tabela_idade)
