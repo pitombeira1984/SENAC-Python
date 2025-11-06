@@ -15,8 +15,22 @@ df = pd.read_excel('livraria_vendas.xlsx')
 
 # Tarefa 3: Primeira Verificação
 
-print(df.head())
-print(df.info())
+#print(df.head())
+#print(df.info())
 
+# PARTE 3: ANÁLISE DESCRITIVA
+# Tarefa 4: Análise de Categorias
+
+freq_abs = df['Categoria'].value_counts()
+freq_rel = df['Categoria'].value_counts(normalize=True). round(2) * 100
+
+top_categoria = pd.DataFrame({
+    'Mais Vendidos':freq_abs,
+    'Mais Vendidos(%)':freq_rel
+})
+
+print(top_categoria)
+
+# A categoria Ficção Científica é a mais vendida.
 
 
