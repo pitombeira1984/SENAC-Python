@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-df = pd.read_excel('C:/Users/Aluno/Documents/Tiago Pitombeira/SENAC-Python/Trabalho_DAP/Relatorio DAP.xlsx')
+df = pd.read_excel('D:/ESTUDOS/SENAC/Python/Trabalho_DAP/Relatorio DAP.xlsx')
 #D:/ESTUDOS/SENAC/Python/Trabalho_DAP/Relatorio DAP.xlsx
 
 #print(df.head())
@@ -18,14 +18,13 @@ mediana_serv = df.groupby('serviço')['qtd'].median()
 DP_serv = df.groupby('serviço')['qtd'].std().round(2)
 #print(DP_serv)
 
-
-resultado_serv = pd.DataFrame({
-    'Média':media_serv,
-    'Mediana':mediana_serv,
-    'Desvio Padrão':DP_serv
-})
-
-#print(resultado_serv)
+def result_serv():
+    resultado_serv = pd.DataFrame({
+        'Média':media_serv,
+        'Mediana':mediana_serv,
+        'Desvio Padrão':DP_serv
+    })
+    print(resultado_serv)
 
 #Calculo por Mês
 
@@ -38,13 +37,13 @@ mediana_mes = df.groupby('mês')['qtd'].median()
 DP_mes = df.groupby('mês')['qtd'].std().round(2)
 #print(DP_mes)
 
-resultado_mes = pd.DataFrame({
-    'Média':media_mes,
-    'Mediana':mediana_mes,
-    'Desvio Padrão':DP_mes
-})
-
-#print(resultado_mes)
+def result_mes():
+    resultado_mes = pd.DataFrame({
+        'Média':media_mes,
+        'Mediana':mediana_mes,
+        'Desvio Padrão':DP_mes
+    })
+    print(resultado_mes)    
 
 #Gráfico Média Atendiemtno por Mês
 def graf_media_atend_mes():
@@ -53,7 +52,6 @@ def graf_media_atend_mes():
     plt.ylabel('Média Atendimento')
     plt.title('Média de Atendimento por Mês')
     plt.show()
-#graf_media_atend_mes()
 
 #Gráfico Média Atendimento por Serviço
 def graf_media_atend_serv():
@@ -64,9 +62,17 @@ def graf_media_atend_serv():
     plt.ylabel('Média Atendimento')
     plt.title('Média de Atendimento por Serviço - Janeiro a Maio')
     plt.show()
-#graf_media_atend_serv()
+
+if __name__ == "__main__":
+    result_serv()
+    result_mes()
+    graf_media_atend_mes()
+    graf_media_atend_serv()
+
+#___________________________________________#
 
 
+"""
 def menu_relatorio():
        
     while True:
@@ -80,9 +86,9 @@ def menu_relatorio():
         opcao = input('Digite a opção desejada:')
 
         if opcao == '1':
-            print(resultado_serv)
+            result_serv()
         elif opcao == '2':
-            print(resultado_mes)
+            result_mes()
         elif opcao == '3':
             graf_media_atend_mes()
         elif opcao == '4':
@@ -94,4 +100,4 @@ def menu_relatorio():
             print('Opção Inválida')
 
 menu_relatorio()
-    
+"""   
