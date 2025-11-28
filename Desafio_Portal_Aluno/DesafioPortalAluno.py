@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-df = pd.read_csv('TabDesafio.csv')
+df = pd.read_csv('D:/ESTUDOS/SENAC/Python/Desafio_Portal_Aluno/TabDesafio.csv')
 
 df["Soma"] = df.loc[:, "Questao 1":"Questao 17"].sum(axis=1)
 
