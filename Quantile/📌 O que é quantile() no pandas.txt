@@ -1,0 +1,33 @@
+📌 O que é quantile() no pandas?
+
+A função quantile() é usada para calcular quantis de colunas numéricas em um DataFrame ou Series.
+
+✔️ Mas o que é um quantil?
+
+Quantil é um ponto que divide um conjunto de dados em partes iguais.
+
+Exemplos comuns:
+
+0.50 (50%) → mediana
+
+0.25 (25%) → primeiro quartil (Q1)
+
+0.75 (75%) → terceiro quartil (Q3)
+
+0.90 (90%) → nono decil
+
+Ou seja, o quantil mostra um valor abaixo do qual está um percentual específico dos dados.
+
+🧠 Quando usar quantile()?
+
+Você usa quantile quando quer:
+
+Entender a distribuição dos dados
+
+Encontrar a mediana
+
+Calcular quartis, decis, percentis
+
+Detectar outliers (com IQR: Q3 – Q1)
+
+Fazer análises estatísticas mais profundas
