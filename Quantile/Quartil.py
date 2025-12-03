@@ -8,13 +8,13 @@ print(df)
 
 
 q1 = df['Dias'].quantile(0.25)
-#print(f"Primeiro Quartil: {q1}")
+print(f"Primeiro Quartil: {q1}")
 
 q2 = df['Dias'].quantile(0.5)
-#print(f"Segundo Quartil(Mediana): {q2}")
+print(f"Segundo Quartil(Mediana): {q2}")
 
 q3 = df['Dias'].quantile(0.75)
-#print(f"Terceiro Quartil: {q3}")
+print(f"Terceiro Quartil: {q3}")
 
 resultado = pd.DataFrame([{
     "Primeiro Quartil":q1,
